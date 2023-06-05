@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22D68" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BookOfRecipte" representedClassName="BookOfRecipte" syncable="YES">
+        <attribute name="attribute" optional="YES" attributeType="Binary"/>
+        <attribute name="ingredients" attributeType="String"/>
+        <attribute name="photo" attributeType="String" valueTransformerName="UIImageTransformer" customClassName="UIImage"/>
+        <attribute name="title" attributeType="String"/>
+        <relationship name="secRecipte" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SectionRecipte" inverseName="mySaveRecipte" inverseEntity="SectionRecipte"/>
+    </entity>
+    <entity name="SectionRecipte" representedClassName="SectionRecipte" syncable="YES">
+        <attribute name="section" attributeType="String"/>
+        <relationship name="mySaveRecipte" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BookOfRecipte" inverseName="secRecipte" inverseEntity="BookOfRecipte"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="section"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+</model>
